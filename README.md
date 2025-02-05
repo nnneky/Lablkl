@@ -42,6 +42,10 @@ plt.ylabel("Voltaje [mv]", color='navy') ## define el nombre y las unidades del 
 plt.title("Señal origninal", color='navy') ## muestra el título y define su color
 plt.show()  ## muestra la señal,los ejes y el título  
 ```
+![image](https://github.com/user-attachments/assets/f7cd8bc3-0f6c-4a18-b041-37a789844f7f)
+
+La gráfica de la señal demuestra un ritmo cárdiaco regular.
+
 ## Cálculo de los estadísticos descriptivos:
 En el marco de la práctica, se calcularon la media aritmética, la desviación estándar y el coeficiente de variación de la señal ECG. Para ello, se implementaron dos métodos diferentes, cuya ejecución se llevó a cabo de la siguiente manera:
 ```bash
