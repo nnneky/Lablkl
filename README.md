@@ -106,6 +106,11 @@ plt.show()
 print(f"\nEl histograma muestra una función de probablidad sesgada hacia la izquierda\n") ## función de probabilidad en base al hitograma
 ```
 
+En la imagen se muestra el histograma generado por funciones, se observa un sesgo hacia la izquierda o negativo lo cual indica que la mayoría de los valores en la distribución están concentrados en el lado derecho del gráfico.
+
+![image](https://github.com/user-attachments/assets/d5185dd0-1169-46c4-a79e-4aa6c91b7e01)
+
+
 
 
 
