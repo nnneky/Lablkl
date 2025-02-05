@@ -73,7 +73,8 @@ coefi= desvi/media  ## se toman los datos cálculados y se realiza una división
 ## coeficiente de variación con los valores de las funciones (numpy no posee una función que lo realice automáticamente)
 coefi1= desviacionc/mediac
 ```
-![image](https://github.com/user-attachments/assets/d6f5e305-d2c6-468d-ad3d-a08a6ceebe1c)
+![image](https://github.com/user-attachments/assets/f2340035-531a-47f7-b76f-4cfeade83041)
+
 
 La imagen anterior muestra los resultados de 3 de los estádisticos descriptivos,se puede observar que ambos métodos proporcionaron resultados iguales, lo que indica una correcta ejecución del código.
 
