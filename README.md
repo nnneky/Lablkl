@@ -78,7 +78,33 @@ coefi1= desviacionc/mediac
 
 La imagen anterior muestra los resultados de 3 de los estádisticos descriptivos,se puede observar que ambos métodos proporcionaron resultados iguales, lo que indica una correcta ejecución del código.
 
-## Histogramas  y funciones de probabilidad:
+## Histogramas  y funciones de probabilidad:El primer histograma se realizó de forma automática por medio de funciones:
+
+```bash
+# Histograma 
+plt.figure(figsize=(10, 8)) ## se crea una figura 
+count, bins, ignored = plt.hist(ecg, bins=50, color='purple', edgecolor='black', alpha=0.4) ##se definen los parametros del histograma, en los cuales se realizara de la señal ecg, con 50 barras de color morado con delineado engro, con un nivel de opacidad de 0.4, count= array que almacena los datos en frecuencias, bins= array con intervalo de los bordes 
+
+# Calcular puntos medios de los intervalos
+bin_centers = (bins[:-1] + bins[1:]) / 2  ## cálcula el centro del bing (borde izquierdo + el derecho dividido en 2) para ubicar el punto en el centro
+
+# Crear una interpolación suavizada
+x_smooth = np.linspace(bin_centers.min(), bin_centers.max(), 300) ##crea una serie de 300 puntos a igual distancia el uno del otro entre el valor mínimo y máximo de bin_centers.(valores del eje x)
+y_smooth = make_interp_spline(bin_centers, count)(x_smooth) ## mediante la libreria scipy.interpolate se crea una interpolación entre los centros de los bins y las frecuencias (parametro count) así se obtendran los valores de y suavizados
+
+# Dibujar línea de tendencia suavizada
+plt.plot(x_smooth, y_smooth, linestyle='-', color='blue', label='Línea de Tendencia')
+
+plt.xlabel("Voltaje (mV)", color='blue') ## titulo y color del eje x
+plt.ylabel("Frecuencia", color='blue') ## titulo y color del eje x
+plt.title("Histograma de la Señal ECG", color='blue') ## titulo y color del titulo del histograma 
+plt.legend() ## muestra la leyenda de la curva suavizada
+plt.show()
+
+print(f"\nEl histograma muestra una función de probablidad sesgada hacia la izquierda\n") ## función de probabilidad en base al hitograma
+```
+
+
 
 
 
