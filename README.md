@@ -12,24 +12,23 @@ Las señales fisiológicas son de vital importancia en el ámbito de la biomedic
 -  scipy.interpolate
 
 ## Importar la señal 
-PhysioNet es una plataforma que proporciona acceso a bases de datos de señales fisiológicas, herramientas de análisis y software para investigación biomédica. Es  utilizada en el desarrollo de algoritmos para el análisis de ECG, EEG y otras señales médicas. Al realizar la busqueda de una señal fisiológica en Physionet se escogió la señal "00ed2097-cd14-4f03-ab33-853da5be5550m" Una señal Electrocardiográfica de la derivación AVR así descargando los archivos [.info]en el cual podemos encontrar la información en cuanto a la señal fisiologica que está analizando, luego el  [.mat] este archivo contenía todos los datos enteros de la señal fisológica, gracias a esta descarga se pudo importar la señal al código de python al igual que graficarla para su clara visualización.
+Se eligió la señal ECG "00ed2097-cd14-4f03-ab33-853da5be5550m" de la derivación aVR en PhysioNet, y se descargaron los archivos .info y .mat para su análisis. Esta señal forma parte de un estudio sobre los efectos de los medicamentos Dofetilide, Moxifloxacin, y sus combinaciones con Mexiletine, Lidocaine y Diltiazem en el corazón. Se espera que el ECG muestre cambios en el ritmo y la forma de las ondas, especialmente en la duración de los intervalos y en cómo se recupera el corazón después de cada latido, debido al efecto de estos medicamentos.
 
-Así se importó la señal haciendo uso de los valores de fracuencia y ganancia especificados en el archivo [.info] Al igual usando la librería WFDB la cual permite cargar, procesar, visualizar y analizar señales fisiológicas, especialmente de bases de datos, usando esto  pudímos importar la señal desde physionet.
-
+A continuación se muestran las librerias y el código implementado para la adecuación de la señal basado en los parametro sdescritos en el archivo .info descargado
 ```bash
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy.io import loadmat
-from scipy.interpolate import make_interp_spline
+import matplotlib.pyplot as plt ## Crear gráficos y visualizaciones
+import numpy as np  ## Manejo de arreglos y cálculos numéricos
+from scipy.io import loadmat  ## Cargar archivos .mat 
+from scipy.interpolate import make_interp_spline ## Interpolación y suavización de curvas
 
-x=loadmat('00ed2097-cd14-4f03-ab33-853da5be5550m.mat')
+x=loadmat('00ed2097-cd14-4f03-ab33-853da5be5550m.mat') ## carga el archivo .mat descargado 
 
-ecg=(x['val']-22430)/66154.2
-ecg=np.transpose(ecg)
-fs=1000
-tm=1/fs
+ecg=(x['val']-22430)/66154.2  ## ajuste de los valores segun el archivo .info
+ecg=np.transpose(ecg) ## transpone el vector de columnas a filas
+fs=1000  ## frecuencia de muestreo 
+tm=1/fs ## tiempo entre muestras
 
-t=np.linspace(0,np.size(ecg),np.size(ecg))*tm
+t=np.linspace(0,np.size(ecg),np.size(ecg))*tm ## vector tiempo para gráficar (valores del eje x)
 ```
 ## Implementar el ruido 
 La señal inicial de la derivación AVR fue contaminada manualmente por ruido: Gaussiano, Artefacto e Impulso
