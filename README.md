@@ -30,6 +30,18 @@ tm=1/fs ## tiempo entre muestras
 
 t=np.linspace(0,np.size(ecg),np.size(ecg))*tm ## vector tiempo para gráficar (valores del eje x)
 ```
+## Gráfico de la señal:
+Mediante el uso de matplotlib se realizó el gráfico del ecg:
+``` bash
+plt.figure(figsize=(12, 8)) ## tamaño de la figura (determinado por los desarrolladores)
+plt.show()  ## muestra la figura
+
+plt.plot(ecg, label="Señal Original", color='darkslategray') ## dibuja la señal ecg , se define el título  y el color deseado
+plt.xlabel("Tiempo [ms]", color='navy') ## define el nombre y las unidades del eje x de la gráfica, tambien el color
+plt.ylabel("Voltaje [mv]", color='navy') ## define el nombre y las unidades del eje y de la gráfica, tambien el color
+plt.title("Señal origninal", color='navy') ## muestra el título y define su color
+plt.show()  ## muestra la señal,los ejes y el título  
+```
 ## Cálculo de los estadísticos descriptivos:
 En el marco de la práctica, se calcularon la media aritmética, la desviación estándar y el coeficiente de variación de la señal ECG. Para ello, se implementaron dos métodos diferentes, cuya ejecución se llevó a cabo de la siguiente manera:
 ```bash
