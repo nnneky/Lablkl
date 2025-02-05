@@ -56,7 +56,9 @@ coefi= desvi/media
 ## coeficiente de variación con los valores de las funciones (numpy no posee una función que lo realice automáticamente)
 coefi1= desviacionc/mediac
 ```
-para el caso de estos 3 estádisticos descriptivos se obtuvieron valores iguales por ambos métodos, lo que indica la correcta ejecución del código.
+![image](https://github.com/user-attachments/assets/d6f5e305-d2c6-468d-ad3d-a08a6ceebe1c)
+La imagen anterior muestra los resultados de 3 de los estádisticos descriptivos,se puede observar que ambos métodos proporcionaron resultados iguales, lo que indica una correcta ejecución del código.
+
 
 ## Implementar el ruido 
 La señal inicial de la derivación AVR fue contaminada manualmente por ruido: Gaussiano, Artefacto e Impulso los cuales fueron implementados de la siguiente forma:
