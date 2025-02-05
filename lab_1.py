@@ -146,3 +146,39 @@ plt.legend()
 plt.show()
 
 print(f"\nEl histograma muestra una función de probablidad sesgada hacia la izquierda\n")
+
+## Histograma manual
+num_bins = 50  # Número de intervalos
+min_val = np.min(ecg)
+max_val = np.max(ecg)
+bin_width = (max_val - min_val) / num_bins
+
+
+# Inicializar contadores de frecuencia
+bin_edges = np.linspace(min_val, max_val, num_bins + 1)
+bin_counts = np.zeros(num_bins)
+
+# Contar la cantidad de valores en cada intervalo
+for value in ecg:
+    for i in range(num_bins):
+        if bin_edges[i] <= value < bin_edges[i + 1]:
+            bin_counts[i] += 1
+            break
+
+# Calcular los centros de los bins
+bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
+
+# Crear una interpolación suavizada
+x_smooth = np.linspace(bin_centers.min(), bin_centers.max(), 300)
+y_smooth = make_interp_spline(bin_centers, bin_counts)(x_smooth)
+
+# Graficar el histograma manual
+plt.figure(figsize=(10, 8))
+plt.bar(bin_centers, bin_counts, width=bin_width, color='purple', edgecolor='black', alpha=0.4, label='Histograma Manual')
+plt.plot(x_smooth, y_smooth, linestyle='-', color='blue', label='Línea de Tendencia')
+
+plt.xlabel("Voltaje (mV)", color='blue')
+plt.ylabel("Frecuencia", color='blue')
+plt.title("Histograma Manual de la Señal ECG", color='blue')
+plt.legend()
+plt.show()
