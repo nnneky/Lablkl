@@ -224,7 +224,7 @@ Señal contaminada con el ruido Impulso
 
 El SNR (Signal-to-Noise Ratio) es la relación entre la potencia de la señal y la potencia del ruido, expresada en decibeles (dB). Se calcula como:
 
-![image](https://github.com/user-attachments/assets/b32d218e-1143-48e6-8a7c-aceed7b2eaa7)
+![image](https://github.com/user-attachments/assets/b32d218e-1143-48e6-8a7c-aceed7b2eaa7)  (imagen 1.1)
 
 Un SNR alto indica una señal clara con poco ruido, mientras que un SNR bajo significa que el ruido domina la señal.
 
@@ -246,3 +246,12 @@ Los resultados del SNR en las 6 señales con ruidos de párametros diferentes fu
 ![image](https://github.com/user-attachments/assets/34d875b7-113d-47b6-8ea9-89b2093fea6a)
 
 En los valores de SNR de muestras iniciales podemos encontrar que los valores dentro de cada ruido varían en cúanto a la degradación de la señal teniendo el ruido impulso con una degradación mínima gracias a su alto valor de SNR a comparación con los demás ruidos, lo cual significa que este tuvo menor impacto en cuanto a la señal original, sin embargo en la segunda tanda de SNRs creados manualmente, se graduaron los parametros para que los ruidos tuvieran mayor impacto con respecto a la señal original, lo cual se implementó correctamente al ver los valores de SNR más cercanos a 0 o incluso en términos negativos lo cúal índica que el ruido tiene mayor predominación con respecto a la señal electrocaridiográfica original.
+
+## Bibliografía:
+- La totalidad de las imagenes mostradas en este repositorio son de propia autoria, exeptuando la imagen 1.1 la cual fue extraida de https://es.slideshare.net/gluzardo/sesion-05-estadistica-en-senales
+- la señal en la cual se baso este repositorio fue obtenida del banco de señales biológicas physionet.org
+- SciPy Developers (2023). SciPy Interpolation Module.https://numpy.org/doc/
+- SciPy Developers (2023). SciPy Interpolation Module. https://docs.scipy.org/doc/scipy/reference/interpolate.html
+- GRUPO BIOMEDICO. (2020, 22 septiembre). Graficar señal DE PHYSIONET EN PYTHON  - señal de prueba ecg [Vídeo]. YouTube. https://www.youtube.com/watch?v=auZ0jB8jYt8
+
+
