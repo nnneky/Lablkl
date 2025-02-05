@@ -31,7 +31,7 @@ tm=1/fs ## tiempo entre muestras
 t=np.linspace(0,np.size(ecg),np.size(ecg))*tm ## vector tiempo para gráficar (valores del eje x)
 ```
 ## Cálculo de los estadísticos descriptivos:
-En marco de la práctica se realizó el cálculo de la media aritmética, la desviación estandar y el coeficiente de variación de la señal, esto usando dos métodos mostrados a continuación:
+En marco de la práctica, se realizó el cálculo de la media aritmética, la desviación estandar y el coeficiente de variación de la señal, esto usando dos métodos mostrados a continuación:
 ```bash
 # Calcular la media aritmética manualmente
 n = ecg.size
