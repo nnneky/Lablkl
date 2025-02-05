@@ -96,3 +96,79 @@ p_impulso=np.random.choice(range(len(ecg)),size=100, replace=False) #Selecciona 
 impulso[p_impulso] = np.random.choice([-1, 1], size=1) * 0.5  #Elige aleatoriamente entre -1 o 1 y regula el impulso para que tenga amplitud 0.5
 s_impulso=(ecg+impulso)  #se crea la señal juntando el ruido Impulso con la señal ECG original.
 ```
+Las señales tanto la original como las que se contaminaron con ruido se gráficaron de la siguiente manera:
+```bash
+plt.figure(figsize=(12, 8))
+plt.show()
+
+plt.plot(ecg, label="Señal Original", color='darkslategray')
+plt.xlabel("Tiempo [ms]", color='navy')
+plt.ylabel("Voltaje [mv]", color='navy')
+plt.title("Señal origninal", color='navy')
+plt.show()
+
+plt.plot(s_gauss, label=f"Ruido Gaussiano",color ='darkslategray')
+plt.xlabel("Tiempo [ms]", color='navy')
+plt.ylabel("Voltaje [mv]", color='navy')
+plt.title("Señal con Ruido Gaussiano", color='navy')
+plt.show()
+
+
+plt.plot(s_artefacto, label=f"Ruido Artefacto ")
+plt.xlabel("Tiempo [ms]", color='navy')
+plt.ylabel("Voltaje [mv]", color='navy')
+plt.title("Señal con Ruido artefacto", color='navy')
+plt.show()
+
+
+plt.plot(s_impulso, label=f"Ruido IMPULSO ",color ='darkslategray')
+plt.xlabel("Tiempo [ms]", color='navy')
+plt.ylabel("Voltaje [mv]", color='navy')
+plt.title("Señal con ruido impulso", color='navy')
+plt.show()
+```
+
+## Gráfica de la señal original:
+
+![image](https://github.com/user-attachments/assets/39136c2a-8f57-4f89-b985-8239589b378d)
+
+## Gráficas de la señal contaminada con los diferentes tipos de ruido: 
+
+Señal contaminada con el ruido Gaussiano
+
+![image](https://github.com/user-attachments/assets/e1021cc1-0057-4400-8ac7-90c2e2d818d8)
+
+Señal contaminada con el ruido Artefacto
+
+
+![image](https://github.com/user-attachments/assets/e972fbf9-f3f9-4888-b535-980f57ae6ca4)
+
+Señal contaminada con el ruido Impulso
+
+
+![image](https://github.com/user-attachments/assets/8c99f109-1a3d-4690-b392-2aa872c1d243)
+
+## Implementación del SNR a las señales contaminadas:
+
+El SNR (Signal-to-Noise Ratio) es la relación entre la potencia de la señal y la potencia del ruido, expresada en decibeles (dB). Se calcula como:
+
+![image](https://github.com/user-attachments/assets/b32d218e-1143-48e6-8a7c-aceed7b2eaa7)
+
+Un SNR alto indica una señal clara con poco ruido, mientras que un SNR bajo significa que el ruido domina la señal.
+
+En el caso de python lo implementamos de la siguiente manera:
+```bash
+def snr(signal,noise):
+    pseñal=np.mean(signal**2) #Potencia media de la señal 
+    pruido=np.mean(noise**2)  #Potencia media el ruido
+    return 10* np.log10(pseñal/pruido)  #Se convierte el valor a [dB]
+```
+Para calcularlo dentro de cada ruido se aplico de la siguiente manera:
+ ```bash
+snr_gauss=snr(ecg,r_gauss) #SNR ruido Gaussiano relacionando la señal original y el ruido. 
+snr_artefacto = snr(ecg,r_artefacto) #SNR ruido Artefacto relacionando la señal original y el ruido.
+snr_impulso=snr(ecg,impulso) #SNR ruido Impulso relacionando la señal original y el ruido.
+```
+Los resultados del SNR en las 6 señales con ruidos de párametros diferentes fueron:
+
+![image](https://github.com/user-attachments/assets/34d875b7-113d-47b6-8ea9-89b2093fea6a)
