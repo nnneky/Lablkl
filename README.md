@@ -78,6 +78,10 @@ coefi1= desviacionc/mediac
 
 La imagen anterior muestra los resultados de 3 de los estádisticos descriptivos,se puede observar que ambos métodos proporcionaron resultados iguales, lo que indica una correcta ejecución del código.
 
+## Histogramas  y funciones de probabilidad:
+
+
+
 ## Implementar el ruido 
 La señal inicial de la derivación AVR fue contaminada manualmente por ruido: Gaussiano, Artefacto e Impulso los cuales fueron implementados de la siguiente forma:
 ```bash
