@@ -30,6 +30,32 @@ tm=1/fs ## tiempo entre muestras
 
 t=np.linspace(0,np.size(ecg),np.size(ecg))*tm ## vector tiempo para gráficar (valores del eje x)
 ```
+## Cálculo de los estadísticos descriptivos:
+En marco de la práctica se realizó el cálculo de la media aritmética, la desviación estandar y el coeficiente de variación de la señal, esto usando dos métodos mostrados a continuación:
+```bash
+# Calcular la media aritmética manualmente
+n = ecg.size
+if n > 1:
+    suma = 0.0
+    for x in ecg:
+        suma += x
+    media = suma / n
+# Calcular la desviación estándar manualmente
+    suma1 = 0.0
+    for x in ecg:
+        suma1 += (x - media) ** 2
+    desvi = (suma1 / (n - 1)) ** 0.5  
+else:
+    media = float('error al calcular')
+    desvi = float('error al calcular')
+# Estadísticos calculados por medio de funciones
+mediac = np.mean(ecg)
+desviacionc = np.std(ecg, ddof=1) 
+## coeficiente de variación calculado
+coefi= desvi/media 
+## coeficiente de variación con los valores de las funciones (numpy no posee una función que lo realice automáticamente)
+coefi1= desviacionc/mediac
+```
 ## Implementar el ruido 
 La señal inicial de la derivación AVR fue contaminada manualmente por ruido: Gaussiano, Artefacto e Impulso los cuales fueron implementados de la siguiente forma:
 ```bash
