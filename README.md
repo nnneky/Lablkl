@@ -80,6 +80,8 @@ La imagen anterior muestra los resultados de 3 de los estádisticos descriptivos
 
 ## Histogramas  y funciones de probabilidad:El primer histograma se realizó de forma automática por medio de funciones:
 
+El primer histograma se realizó de forma automática por medio de funciones:
+
 ```bash
 # Histograma 
 plt.figure(figsize=(10, 8)) ## se crea una figura 
