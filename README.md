@@ -5,11 +5,11 @@ This repository is dedicated to the statistical analysis of a biological signal 
 Las señales fisiológicas son de vital importancia en el ámbito de la biomedicina, ya que permiten comprender y monitorear el funcionamiento del cuerpo humano. En este caso, se analizó una señal ECG con el objetivo de calcular sus estadísticos descriptivos y observar cómo diferentes tipos de ruido pueden afectarla. Este análisis se realizó utilizando la interfaz de Python, aplicando los conocimientos adquiridos en la materia de Procesamiento Digital de Señales, como parte de la primera práctica de laboratorio.
 
 ## Requirements
-- interfaz de python (para este caso 3.12)
-- numpy
--  matplotlib
--  scipy.io
--  scipy.interpolate
+- Interfaz de python (para este caso 3.12)
+- Numpy
+-  Matplotlib
+-  Scipy.io
+-  Scipy.interpolate
 
 ## Importar la señal 
 Se eligió la señal ECG "00ed2097-cd14-4f03-ab33-853da5be5550m" de la derivación aVR en PhysioNet, y se descargaron los archivos .info y .mat para su análisis. Esta señal forma parte de un estudio sobre los efectos de los medicamentos Dofetilide, Moxifloxacin, y sus combinaciones con Mexiletine, Lidocaine y Diltiazem en el corazón. Se espera que el ECG muestre cambios en el ritmo y la forma de las ondas, especialmente en la duración de los intervalos y en cómo se recupera el corazón después de cada latido, debido al efecto de estos medicamentos.
