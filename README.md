@@ -110,6 +110,45 @@ En la imagen se muestra el histograma generado por funciones, se observa un sesg
 
 ![image](https://github.com/user-attachments/assets/d5185dd0-1169-46c4-a79e-4aa6c91b7e01)
 
+Segundo histograma fue realizado de manera manual:
+
+```bash
+# histograma manual 
+num_bins = 50  # Número de intervalos en los que se dividira el histograma
+min_val = np.min(ecg) ## encuentra el valor minimo de la señal
+max_val = np.max(ecg) ## encuentra el valor máximo de la señal
+bin_width = (max_val - min_val) / num_bins    ## se cálcula el ancho de cada intervalo (rango total de los datos dividido el número de divisiones del histograma)
+
+# Inicializar contadores de frecuencia
+bin_edges = np.linspace(min_val, max_val, num_bins + 1) ## se crean los bordes de los bins +1 ya que serán 51 bordes 
+bin_counts = np.zeros(num_bins) ## se crea un arreglo para guardar las frecuencias de cada intervalo
+
+# Contar la cantidad de valores en cada intervalo
+for value in ecg:   ## Recorrer todos los valores de la señal 
+    for i in range(num_bins):  ## Recorrer cada intervalo (bin)
+        if bin_edges[i] <= value < bin_edges[i + 1]:  # Verificar si el valor está en el intervalo de algun bin
+            bin_counts[i] += 1 ## se aumenta la cuenta del bin correspondiente
+            break
+
+# Calcular los centros de los bins
+bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2  ## borde izquierdo mas el derecho dividido entre dos
+
+# Crear una interpolación suavizada
+x_smooth = np.linspace(bin_centers.min(), bin_centers.max(), 300) ## de la misma manera que en el anterior histograma 
+y_smooth = make_interp_spline(bin_centers, bin_counts)(x_smooth)
+
+# Graficar el histograma manual
+plt.figure(figsize=(10, 8)) ## se crea una figura del tamaño deseado
+plt.bar(bin_centers, bin_counts, width=bin_width, color='purple', edgecolor='black', alpha=0.4, label='Histograma Manual') ## dibujas las barras del histograma con los criterios de numeros de barras y los centros de las mismas, se define el color nombre, titulo y opacidad de las barras 
+plt.plot(x_smooth, y_smooth, linestyle='-', color='blue', label='Línea de Tendencia') ## dibuja la linea de tendencia suavizada
+
+plt.xlabel("Voltaje (mV)", color='blue') ## unidades y color del eje x
+plt.ylabel("Frecuencia", color='blue')## unidades y color del eje y
+plt.title("Histograma Manual de la Señal ECG", color='blue') ## titulo y color del histograma 
+plt.legend() # leyenda de la curva de tendencia 
+plt.show()
+print(f"\nEl histograma muestra una función de probablidad sesgada hacia la izquierda\n") ## función de probabilidad 
+```
 
 
 
