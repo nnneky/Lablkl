@@ -31,4 +31,10 @@ tm=1/fs ## tiempo entre muestras
 t=np.linspace(0,np.size(ecg),np.size(ecg))*tm ## vector tiempo para gráficar (valores del eje x)
 ```
 ## Implementar el ruido 
-La señal inicial de la derivación AVR fue contaminada manualmente por ruido: Gaussiano, Artefacto e Impulso
+La señal inicial de la derivación AVR fue contaminada manualmente por ruido: Gaussiano, Artefacto e Impulso los cuales fueron implementados de la siguiente forma:
+```bash
+r_gauss=np.random.normal(0,0.1, size=ecg.shape) #donde el [0.1] controla la amplitud del ruido el cúal se ve de manera gráfica.
+s_gauss= (ecg+r_gauss) #se crea la señal juntando el ruido Gaussiano con la señal ECG original.
+
+
+```
