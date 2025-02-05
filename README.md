@@ -84,7 +84,7 @@ La señal inicial de la derivación AVR fue contaminada manualmente por ruido: G
 r_gauss=np.random.normal(0,0.1, size=ecg.shape) #donde el [0.1] controla la amplitud del ruido el cúal se ve de manera gráfica.
 s_gauss= (ecg+r_gauss) #se crea la señal juntando el ruido Gaussiano con la señal ECG original.
 
-r_artefacto=0.2*np.sin(2*np.pi*50*np.linspace(0, 1, len(ecg))) # Este crea un vector de tiempo que va de 0 a 1 segundo con largo de las muestras, asegurando una frecuencia de muestreo correcta y alcula la frecuencia angular de 50 Hz en radianes
+r_artefacto=0.2*np.sin(2*np.pi*50*np.linspace(0, 1, len(ecg))) # Este crea un vector de tiempo que va de 0 a 1 segundo con largo de las muestras, asegurando una frecuencia de muestreo correcta y cálcula la frecuencia angular de 50 Hz en radianes
 s_artefacto= (ecg+r_artefacto) #se crea la señal juntando el ruido Artefacto con la señal ECG original.
 
 impulso=np.zeros_like(ecg) #Crea un array del mismo tamaño que ecg, pero lleno de ceros
