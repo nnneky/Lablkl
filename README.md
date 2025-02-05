@@ -149,9 +149,9 @@ plt.legend() # leyenda de la curva de tendencia
 plt.show()
 print(f"\nEl histograma muestra una función de probablidad sesgada hacia la izquierda\n") ## función de probabilidad 
 ```
+En la imagen se muestra el histograma generado manualmente, se observa un sesgo hacia la izquierda o negativo lo cual indica que la mayoría de los valores en la distribución están concentrados en el lado derecho del gráfico.
 
-
-
+![image](https://github.com/user-attachments/assets/f3bed24f-df56-45da-8dc7-3005463529ff)
 
 
 ## Implementar el ruido 
