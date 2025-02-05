@@ -3,11 +3,11 @@ import numpy as np
 from scipy.io import loadmat
 from scipy.interpolate import make_interp_spline
 #Cargamos los datos de phyisionet al código.
-x=loadmat('sigg.mat')
+x=loadmat('nombre del archivo.mat')
 
-ecg=(x['val']-22430)/66154.2
+ecg=(x['val']-22430)/66154.2 ## ajustar según tu archivo .info
 ecg=np.transpose(ecg)
-fs=1000
+fs=1000 ## segun archivo .info
 tm=1/fs
 
 t=np.linspace(0,np.size(ecg),np.size(ecg))*tm
