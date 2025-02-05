@@ -205,3 +205,5 @@ snr_impulso=snr(ecg,impulso) #SNR ruido Impulso relacionando la señal original 
 Los resultados del SNR en las 6 señales con ruidos de párametros diferentes fueron:
 
 ![image](https://github.com/user-attachments/assets/34d875b7-113d-47b6-8ea9-89b2093fea6a)
+
+En los valores de SNR de muestras iniciales podemos encontrar que los valores dentro de cada ruido varían en cúanto a la degradación de la señal teniendo el ruido impulso con una degradación mínima gracias a su alto valor de SNR a comparación con los demás ruidos, lo cual significa que este tuvo menor impacto en cuanto a la señal original, sin embargo en la segunda tanda de SNRs creados manualmente, se graduaron los parametros para que los ruidos tuvieran mayor impacto con respecto a la señal original, lo cual se implementó correctamente al ver los valores de SNR más cercanos a 0 o incluso en términos negativos lo cúal índica que el ruido tiene mayor predominación con respecto a la señal electrocaridiográfica original.
